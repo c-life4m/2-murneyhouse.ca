@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Murney House B&B</title>
+    <link rel="stylesheet" href="src/styles/style.css">
+    <!-- Add Font Awesome or other icon library if needed for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+    <header class="site-header">
+        <div class="container">
+            <div class="header-content">
+                <div class="site-logo">
+                    <a href="/">Murney House</a>
+                </div>
+                <nav class="main-nav">
+                    <ul>
+                        <li><a href="#rooms">Rooms</a></li>
+                        <li><a href="#amenities">Amenities</a></li>
+                        <li><a href="#local-area">Local Area</a></li>
+                        <li><a href="#booking">Booking</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </nav>
+                <div class="header-controls">
+                    <button class="theme-toggle" aria-label="Toggle light/dark mode">
+                        <i class="fas fa-moon"></i>
+                        <i class="fas fa-sun"></i>
+                    </button>
+                    <!-- Language toggle can be added here if needed -->
+                    <!-- <button class="lang-toggle" aria-label="Toggle language">EN/FR</button> -->
+                    <button class="mobile-nav-toggle" aria-label="Toggle mobile navigation">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- Hero Section -->
+    <section id="hero">
+        <div class="hero-content">
+            <div class="hero-image-container">
+                <!-- Update the background-image URL to your local file -->
+                <div class="hero-image" style="background-image: url('public/images/assets/PX/hero-1920.webp')"></div>
+                <div class="hero-mask"></div> <!-- Overlay for image -->
+            </div>
+            <div class="hero-text">
+                <h1 data-en="Your Home Away From Home" data-fr="Votre maison loin de chez vous">Your Home Away From Home</h1> <!-- Welcome Headline -->
+                <p data-en="Experience the comfort and charm of Murney House" data-fr="D\u00e9couvrez le confort et le charme de Murney House">Experience the comfort and charm of Murney House</p> <!-- Subtitle -->
+                <a href="#rooms" class="explore-button" data-en="Explore" data-fr="Explorer">
+                    Explore
+                    <i class="fas fa-chevron-down"></i> <!-- Example icon -->
+                </a>
+            </div>
+        </div>
+    </section>
+    <div class="mobile-nav">
+        <ul>
+            <li><a href="#rooms">Rooms</a></li>
+            <li><a href="#amenities">Amenities</a></li>
+            <li><a href="#local-area">Local Area</a></li>
+            <li><a href="#booking">Booking</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </div>
+
+    <main>
+        <!-- Sections for Step 2 onwards will go here -->
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <div class="footer-logo">
+                        <span>Murney House</span>
+                    </div>
+                    <p data-en="Your home away from home in the heart of our charming town." data-fr="Votre maison loin de chez vous au cœur de notre charmante ville.">Your home away from home in the heart of our charming town.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="Pinterest"><i class="fab fa-pinterest"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-column">
+                    <h3 data-en="Contact" data-fr="Contact">Contact</h3>
+                    <address>
+                        <p>123 Main Street<br>Small Town, CA 12345</p>
+                        <p><a href="tel:+15551234567">(555) 123-4567</a></p>
+                        <p><a href="mailto:info@murneyhouse.ca">info@murneyhouse.ca</a></p>
+                    </address>
+                </div>
+
+                <div class="footer-column">
+                    <h3 data-en="Quick Links" data-fr="Liens Rapides">Quick Links</h3>
+                    <ul>
+                        <li><a href="#rooms" data-en="Rooms" data-fr="Chambres">Rooms</a></li>
+                        <li><a href="#amenities" data-en="Amenities" data-fr="Commodités">Amenities</a></li>
+                        <li><a href="#local-area" data-en="Local Area" data-fr="Région">Local Area</a></li>
+                        <li><a href="#" data-en="Policies" data-fr="Politiques">Policies</a></li>
+                        <li><a href="#" data-en="FAQs" data-fr="FAQs">FAQs</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h3 data-en="Newsletter" data-fr="Infolettre">Newsletter</h3>
+                    <p data-en="Subscribe to receive updates, special offers, and local tips." data-fr="Abonnez-vous pour recevoir des mises à jour, des offres spéciales et des conseils locaux.">Subscribe to receive updates, special offers, and local tips.</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Your email" required>
+                        <button type="submit" data-en="Subscribe" data-fr="S'abonner">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p data-en="© 2023 Murney House. All rights reserved." data-fr="© 2023 Murney House. Tous droits réservés.">© 2023 Murney House. All rights reserved.</p>
+                <div class="footer-links">
+                    <a href="#" data-en="Privacy Policy" data-fr="Politique de Confidentialité">Privacy Policy</a>
+                    <a href="#" data-en="Terms of Service" data-fr="Conditions d'Utilisation">Terms of Service</a>
+                    <a href="#" data-en="Sitemap" data-fr="Plan du Site">Sitemap</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="src/script.js"></script>
+</body>
+</html>
