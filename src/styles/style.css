@@ -54,8 +54,7 @@ a {
     color: var(--dark-primary);
 }
 
-a:hover {
-    text-decoration: underline;
+.main-nav a:hover,
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -116,14 +115,8 @@ h1, h2, h3, h4, h5, h6 {
     text-decoration: none !important;
 }
 
-header .logo a,
-header .logo a:hover,
-header .logo a:focus,
-header .logo a:active {
+.logo a:hover {
     text-decoration: none !important;
-    text-decoration-line: none !important;
-    border-bottom: none !important;
-    box-shadow: none !important;
 }
 
 .main-nav a {
@@ -492,6 +485,7 @@ footer ul li a:hover {
 }
 
 .footer-bottom .footer-links a:hover {
+    color: var(--light-primary); /* Footer bottom link hover color */
     text-decoration: underline;
 }
 
