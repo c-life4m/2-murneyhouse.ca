@@ -99,7 +99,6 @@ h1, h2, h3, h4, h5, h6 {
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
 }
 
-
 .header-content {
     display: flex;
     justify-content: space-between;
@@ -152,21 +151,7 @@ h1, h2, h3, h4, h5, h6 {
     align-items: center;
 }
 
-.theme-toggle, .lang-toggle {
-    background: none;
-    border: none;
-    cursor: pointer;
-    margin: 0 var(--spacing-xs);
-    font-size: 1.2rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    color: var(--light-text); /* Icon color */
-    transition: background-color var(--transition-fast), color var(--transition-fast);
-}
+
 
 .dark-mode .theme-toggle, .dark-mode .lang-toggle {
      color: var(--dark-text); /* Icon color in dark mode */
@@ -289,6 +274,37 @@ h1, h2, h3, h4, h5, h6 {
     color: var(--dark-primary); /* Hover color in dark mode */
 }
 
+#hero {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    min-height: 500px;
+    overflow: hidden;
+}
+
+.hero-image-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.hero-image {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    opacity: 0;
+    transform: scale(1.1);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.hero-image.loaded {
+    opacity: 1;
+    transform: scale(1);
+}
 
 /* Footer */
 footer {

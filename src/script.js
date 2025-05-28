@@ -11,6 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
         setTheme('light');
     }
 
+    loadHeroImage();
     setupEventListeners();
     handleScroll(); // Call on load to set initial header state
 });
@@ -70,10 +71,42 @@ function handleScroll() {
             header.classList.add('scrolled');
         } else {
             header.classList.remove('scrolled');
-        }
+        } // Added missing closing brace
     }
 }
 
-// Add other functions here as needed for later steps (e.g., animations, modals)
-// function initializeAnimations() { ... }
-// function setupModals() { ... }
+function loadHeroImage() {
+    const heroImage = document.querySelector('.hero-image');
+    const heroImageContainer = document.querySelector('.hero-image-container');
+
+    if (heroImage && heroImageContainer) {
+        // Get the current background image URL
+        const backgroundImage = heroImage.style.backgroundImage;
+        const imageUrl = backgroundImage.replace(/url\(['"]?/, '').replace(/['"]?\)$/, '');
+
+        console.log('Background Image URL:', backgroundImage);
+        console.log('Extracted Image URL:', imageUrl);
+
+        const img = new Image();
+
+        img.onload = () => {
+            console.log('Image loaded successfully');
+            console.log('Natural image size:', img.naturalWidth, 'x', img.naturalHeight);
+
+            // Ensure the image is visible
+            heroImage.classList.add('loaded');
+            heroImageContainer.style.opacity = '1';
+        };
+
+        img.onerror = (error) => {
+            console.error('Image load failed:', error);
+            console.error('Image URL:', imageUrl);
+        };
+
+        img.src = imageUrl;
+    } else {
+        console.error('Hero image elements not found');
+        if (!heroImage) console.error('Hero image element missing');
+        if (!heroImageContainer) console.error('Hero image container missing');
+    }
+}
