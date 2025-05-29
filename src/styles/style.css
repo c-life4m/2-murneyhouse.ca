@@ -153,7 +153,7 @@ h1, h2, h3, h4, h5, h6 {
     margin-right: var(--spacing-md); /* This will give space from right edge */
     gap: var(--spacing-sm); /* This adds consistent spacing between all elements */
 }
-.theme-toggle, .lang-toggle {
+.theme-toggle {
     background: none;
     border: none;
     cursor: pointer;
@@ -169,23 +169,21 @@ h1, h2, h3, h4, h5, h6 {
     padding: 8px;
 }
 
-.dark-mode .theme-toggle, .dark-mode .lang-toggle {
+.dark-mode .theme-toggle {
      color: var(--dark-text); /* Icon color in dark mode */
 }
 
 
-.theme-toggle:hover, .lang-toggle:hover {
+.theme-toggle:hover {
     opacity: 0.5;
 }
 
 .theme-toggle:hover .fa-moon,
-.theme-toggle:hover .fa-sun,
-.lang-toggle:hover .en-flag,
-.lang-toggle:hover .fr-flag {
+.theme-toggle:hover .fa-sun {
     opacity: 0.7;
 }
 
-.dark-mode .theme-toggle:hover, .dark-mode .lang-toggle:hover {
+.dark-mode .theme-toggle:hover {
     opacity: 0.7;
 }
 
