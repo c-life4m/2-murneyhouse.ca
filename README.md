@@ -1,143 +1,89 @@
 # Murney House B&B Website
 
-A modern, responsive website for Murney House Bed & Breakfast featuring bilingual support, dark/light theme toggle, and mobile-responsive design.
+A modern, responsive website for Murney House Bed & Breakfast featuring dark/light mode toggle and mobile-first design.
 
-## Project Overview
-
-This is a static website built with HTML5, CSS3, and JavaScript for a Bed & Breakfast business. The site features a clean, modern design with accessibility considerations and performance optimizations.
-
-## Current Features
+## Features
 
 ### ✅ Completed
-- **Responsive Design**: Mobile-first approach with desktop enhancements
-- **Theme Toggle**: Light/dark mode with CSS custom properties
-- **Bilingual Support**: English/French content structure (data attributes ready)
-- **Modern CSS**: Custom properties (CSS variables) for consistent theming
-- **Accessibility**: ARIA labels, semantic HTML structure
-- **Performance**: WebP image format support, optimized loading
-- **Mobile Navigation**: Hamburger menu for mobile devices
-- **Social Media Integration**: Footer social links ready
-- **Newsletter Signup**: Contact form structure in place
+- **Responsive Header & Navigation**
+  - Fixed header with logo and main navigation
+  - Mobile hamburger menu with smooth slide-in animation
+  - Fully functional hamburger-to-X animation
+  - Transparent mobile nav background for better visual appeal
+- **Dark/Light Mode Toggle**
+  - Seamless theme switching with system preference detection
+  - Consistent styling across all components
+- **Hero Section**
+  - Full-screen hero with background image
+  - Responsive text overlay with call-to-action
+  - Smooth scroll-to-section functionality
+- **Mobile Optimization**
+  - Touch-friendly navigation
+  - Optimized typography and spacing for mobile devices
+  - Working mobile menu with proper z-index layering
 
 ### 🚧 In Progress
-- Content sections (rooms, amenities, local area)
-- JavaScript functionality for theme toggle
-- Mobile navigation interactions
-- Form handling
+- Room showcase section
+- Amenities section
+- Local area information
+- Booking integration
+- Contact section
 
-### 📋 Planned
-- Booking system integration
-- Image gallery
-- Guest reviews section
-- Local attractions map
-- Multi-language toggle functionality
+## Technical Implementation
+
+### Mobile Navigation
+- **Hamburger Animation**: Clean 3-line to X transformation using CSS transforms
+- **Slide-in Menu**: Full-screen overlay that slides in from the left
+- **Transparent Background**: Semi-transparent background with adjustable opacity
+- **Touch Interactions**: Proper pointer events management for mobile devices
+
+### Theme System
+- CSS custom properties for consistent theming
+- Automatic dark mode detection
+- Manual toggle with state persistence
+
+### Performance
+- WebP image optimization
+- CSS transitions for smooth interactions
+- Semantic HTML structure
 
 ## File Structure
-
-2-murneyhouse.ca/
-├── index.html              # Main homepage
+├── index.html              # Main HTML file
 ├── src/
 │   ├── styles/
-│   │   └── style.css       # Main stylesheet with theme variables
-│   └── script.js           # JavaScript functionality
+│   │   └── style.css      # Main stylesheet with mobile nav implementation
+│   └── script.js          # JavaScript for interactions
 ├── public/
 │   └── images/
 │       └── assets/
-│           └── PX/
-│               └── hero-1920.webp  # Hero section image
-└── README.md              # This file
+│           └── PX/        # Optimized WebP images
+└── README.md
 
-Css
+Markdown
 copy
 Open in Browser
 
-## CSS Architecture
+## Recent Updates
+- ✅ Fixed mobile navigation hamburger animation
+- ✅ Implemented transparent mobile nav background
+- ✅ Added proper slide-in/out transitions
+- ✅ Resolved z-index and layering issues
+- ✅ Enhanced touch interaction handling
 
-### Custom Properties (CSS Variables)
-The site uses a comprehensive CSS custom property system for theming:
+## Next Steps
+1. Add room showcase cards with image galleries
+2. Implement amenities section with icons
+3. Create local area information section
+4. Add booking form integration
+5. Build contact section with map
 
-```css
-:root {
-  /* Light mode colors */
-  --light-background: #ffffff;
-  --light-text: #333333;
-  --light-primary: #2c5530;
+## Browser Support
+- Modern browsers (Chrome, Firefox, Safari, Edge)
+- Mobile browsers (iOS Safari, Chrome Mobile)
+- Progressive enhancement for older browsers
 
-  /* Dark mode colors */
-  --dark-background: #1a1a1a;
-  --dark-text: #e0e0e0;
-  --dark-primary: #4a7c59;
-
-  /* Spacing and transitions */
-  --spacing-xs: 0.25rem;
-  --spacing-sm: 0.5rem;
-  --transition-fast: 0.2s ease;
-}
-Recent Fixes
-✅ Resolved logo hover underline issue
-✅ Fixed duplicate CSS rules causing double underlines
-✅ Cleaned up navigation hover states
-Development Setup
-Prerequisites
-Modern web browser
-Code editor (VS Code recommended)
-Local web server (Live Server extension or similar)
-Getting Started
-Clone the repository
-Open index.html in your browser or use a local server
-Edit files in the src/ directory
-Test responsive design using browser dev tools
-Development Notes
-Use mobile-first CSS approach
-Test both light and dark themes
-Validate HTML and CSS regularly
-Optimize images (WebP format preferred)
-Browser Support
-Chrome/Edge: Latest 2 versions
-Firefox: Latest 2 versions
-Safari: Latest 2 versions
-Mobile browsers: iOS Safari, Chrome Mobile
-Accessibility Features
-Semantic HTML structure
-ARIA labels for interactive elements
-Keyboard navigation support
-High contrast mode compatibility
-Screen reader friendly
-Performance Optimizations
-WebP image format for hero images
-CSS custom properties for efficient theming
-Minimal JavaScript footprint
-Optimized CSS delivery
-Contributing
-Code Style
-Use 2-space indentation
-Follow BEM methodology for CSS classes where applicable
-Comment complex CSS rules
-Use semantic HTML elements
-Testing Checklist
- Test on mobile devices
- Verify both theme modes
- Check navigation functionality
- Validate HTML/CSS
- Test form submissions
- Verify accessibility features
-Next Development Session Priorities
-JavaScript Implementation
-
-Theme toggle functionality
-Mobile navigation toggle
-Smooth scrolling for anchor links
-Content Sections
-
-Rooms showcase
-Amenities grid
-Local area highlights
-Interactive Features
-
-Image galleries
-Contact form validation
-Newsletter signup handling
-Known Issues
-JavaScript functionality not yet implemented
-Content sections are placeholder structure only
-Form submissions need backend integration
+## Development Notes
+- Mobile-first CSS approach
+- CSS Grid and Flexbox for layouts
+- Custom properties for theming consistency
+- Semantic HTML for accessibility
