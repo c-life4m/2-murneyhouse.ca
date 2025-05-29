@@ -41,6 +41,22 @@
 </div>
 
     </header>
+    <!-- Mobile Navigation Menu (Add this after </header>) -->
+<div class="mobile-nav">
+    <button class="mobile-nav-toggle" onclick="toggleMobileNav()">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+    <ul>
+        <li><a href="#rooms">Rooms</a></li>
+        <li><a href="#amenities">Amenities</a></li>
+        <li><a href="#local-area">Local Area</a></li>
+        <li><a href="#booking">Booking</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a href="#booking" class="cta-button">Book Now</a></li>
+    </ul>
+</div>
     <!-- Hero Section -->
     <section id="hero">
         <div class="hero-content">
@@ -59,15 +75,6 @@
             </div>
         </div>
     </section>
-    <div class="mobile-nav">
-        <ul>
-            <li><a href="#rooms">Rooms</a></li>
-            <li><a href="#amenities">Amenities</a></li>
-            <li><a href="#local-area">Local Area</a></li>
-            <li><a href="#booking">Booking</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-    </div>
 
     <main>
         <!-- Sections for Step 2 onwards will go here -->
@@ -131,5 +138,34 @@
     </footer>
 
     <script src="src/script.js"></script>
+    <script>
+// Mobile Navigation Toggle
+function toggleMobileNav() {
+    const mobileNav = document.querySelector('.mobile-nav');
+    const toggle = document.querySelector('.mobile-nav-toggle');
+
+    mobileNav.classList.toggle('active');
+    toggle.classList.toggle('active');
+}
+
+// Close mobile nav when clicking on a link
+document.querySelectorAll('.mobile-nav a').forEach(link => {
+    link.addEventListener('click', () => {
+        document.querySelector('.mobile-nav').classList.remove('active');
+        document.querySelector('.mobile-nav-toggle').classList.remove('active');
+    });
+});
+
+// Close mobile nav when clicking outside
+document.addEventListener('click', (e) => {
+    const mobileNav = document.querySelector('.mobile-nav');
+    const toggle = document.querySelector('.mobile-nav-toggle');
+
+    if (!mobileNav.contains(e.target) && !toggle.contains(e.target)) {
+        mobileNav.classList.remove('active');
+        toggle.classList.remove('active');
+    }
+});
+</script>
 </body>
 </html>
