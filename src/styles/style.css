@@ -488,7 +488,7 @@ header nav li {
 
 .hero-text {
     position: absolute;
-    top: 50%;
+    top: 30%;
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 2;
@@ -503,14 +503,14 @@ header nav li {
 
 .hero-text h1 {
     font-family: 'Georgia', 'Times New Roman', serif; /* Classic serif font like preview */
-    font-size: 3.4rem; /* 30% smaller than original 4rem */
+    font-size: 3.8rem; /* 30% smaller than original 4rem */
     font-weight: 700;
     margin-bottom: var(--spacing-sm);
     color: white !important;
     text-shadow: 2px 2px 4px rgba(0,0,0,0.8),
                  -1px -1px 2px rgba(0,0,0,0.5),
                  1px -1px 2px rgba(0,0,0,0.5),
-                 -1px 1px 2px rgba(0,0,0,0.5); /* Black outline effect */
+                 -1px 1px 2px rgba(0,0,0,0.9); /* Black outline effect */
     opacity: 0;
     transform: translateY(30px);
     transition: opacity 0.8s ease 0.3s, transform 0.8s ease 0.3s;
@@ -525,7 +525,7 @@ header nav li {
     text-shadow: 1px 1px 3px rgba(0,0,0,0.8),
                  -1px -1px 2px rgba(0,0,0,0.5),
                  1px -1px 2px rgba(0,0,0,0.5),
-                 -1px 1px 2px rgba(0,0,0,0.5); /* Black outline effect */
+                 -1px 1px 2px rgba(0,0,0,0.9); /* Black outline effect */
     opacity: 0;
     transform: translateY(30px);
     transition: opacity 0.8s ease 0.6s, transform 0.8s ease 0.6s;
@@ -546,21 +546,22 @@ header nav li {
     transition: opacity 0.8s ease 0.9s, transform 0.8s ease 0.9s, background-color 0.3s ease;
 }
 
-.explore-button:hover {
-    background-color: white;
-    color: var(--dark-text);
-    animation: wiggle 0.6s ease-in-out;
+/* Target the hero CTA button specifically */
+#hero .hero-text a.cta-button.large:hover {
+    background-color: white !important;
+    color: var(--dark-text) !important;
+    animation: buttonWobble 0.6s ease-in-out !important;
 }
 
-.explore-button:hover i {
-    transform: translateY(5px);
+.cta-button.large:hover {
+    background-color: var(--cta-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    animation: buttonWobble 0.6s ease-in-out;
 }
 
-/* Add the wiggle animation */
-@keyframes wiggle {
-    0%, 100% { transform: translateY(0) scale(1.05) rotate(0deg); }
-    25% { transform: translateY(0) scale(1.05) rotate(-3deg); }
-    75% { transform: translateY(0) scale(1.05) rotate(3deg); }
+.cta-button.large::after {
+    display: none !important;
 }
 
 /* Override dark mode for hero text - keep white always */
