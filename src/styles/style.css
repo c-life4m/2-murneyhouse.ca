@@ -55,9 +55,6 @@ a {
     color: var(--dark-primary);
 }
 
-.main-nav a:hover,
-}
-
 h1, h2, h3, h4, h5, h6 {
     color: var(--light-text);
     margin-bottom: var(--spacing-sm);
@@ -260,7 +257,7 @@ h1, h2, h3, h4, h5, h6 {
     background-color: var(--dark-text);
 }
 
-//* Hamburger Animation */
+/* Hamburger Animation */
 .mobile-nav-toggle span {
     display: block;
     height: 3px;
@@ -480,9 +477,125 @@ header nav li {
     height: 100%;
     background-size: cover;
     background-position: center;
-    opacity: 0;
+    background-repeat: no-repeat;
     transform: scale(1.1);
-    transition: opacity 0.5s ease, transform 0.5s ease;
+    opacity: 0;
+    transition: transform var(--transition-slow), opacity var(--transition-slow);
+    /* Default image for largest screens */
+    background-image: url('../../public/images/assets/PX/hero-1920.webp');
+    z-index: 1;
+}
+
+.hero-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    text-align: center;
+    color: white !important; /* Force white text always */
+    max-width: 800px;
+    padding: 0 var(--spacing-md);
+    opacity: 0;
+    transform: translate(-50%, -50%) translateY(50px);
+    transition: opacity var(--transition-slow), transform var(--transition-slow);
+}
+
+.hero-text h1 {
+    font-family: 'Georgia', 'Times New Roman', serif; /* Classic serif font like preview */
+    font-size: 3.4rem; /* 30% smaller than original 4rem */
+    font-weight: 700;
+    margin-bottom: var(--spacing-sm);
+    color: white !important;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.8),
+                 -1px -1px 2px rgba(0,0,0,0.5),
+                 1px -1px 2px rgba(0,0,0,0.5),
+                 -1px 1px 2px rgba(0,0,0,0.5); /* Black outline effect */
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease 0.3s, transform 0.8s ease 0.3s;
+}
+
+.hero-text p {
+    font-family: 'Georgia', 'Times New Roman', serif;
+    font-size: 1.64rem; /* 30% smaller than original 1.3rem */
+    font-weight: 400;
+    margin-bottom: var(--spacing-lg);
+    color: white !important;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.8),
+                 -1px -1px 2px rgba(0,0,0,0.5),
+                 1px -1px 2px rgba(0,0,0,0.5),
+                 -1px 1px 2px rgba(0,0,0,0.5); /* Black outline effect */
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease 0.6s, transform 0.8s ease 0.6s;
+}
+
+.hero-text .cta-button {
+    color: white !important;
+    border: 2px solid white;
+    background: rgba(255,255,255,0.1);
+    backdrop-filter: blur(10px);
+    padding: 12px 24px;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: 600;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+    opacity: 0;
+    transform: translateY(30px) scale(0.9);
+    transition: opacity 0.8s ease 0.9s, transform 0.8s ease 0.9s, background-color 0.3s ease;
+}
+
+.explore-button:hover {
+    background-color: white;
+    color: var(--dark-text);
+    animation: wiggle 0.6s ease-in-out;
+}
+
+.explore-button:hover i {
+    transform: translateY(5px);
+}
+
+/* Add the wiggle animation */
+@keyframes wiggle {
+    0%, 100% { transform: translateY(0) scale(1.05) rotate(0deg); }
+    25% { transform: translateY(0) scale(1.05) rotate(-3deg); }
+    75% { transform: translateY(0) scale(1.05) rotate(3deg); }
+}
+
+/* Override dark mode for hero text - keep white always */
+.dark-mode .hero-text,
+.dark-mode .hero-text h1,
+.dark-mode .hero-text p,
+.dark-mode .hero-text .cta-button {
+    color: white !important;
+}
+
+/* Animation trigger classes */
+.hero-text.loaded {
+    opacity: 1;
+    transform: translate(-50%, -50%) translateY(0);
+}
+
+.hero-text.loaded h1,
+.hero-text.loaded p,
+.hero-text.loaded .cta-button {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
+/* Medium screens - tablets and small laptops */
+@media (max-width: 1200px) {
+    .hero-image {
+        background-image: url('../../public/images/assets/PX/hero-1200.webp');
+    }
+}
+
+/* Small screens - phones */
+@media (max-width: 800px) {
+    .hero-image {
+        background-image: url('../../public/images/assets/PX/hero-800.webp');
+    }
 }
 
 .hero-image.loaded {

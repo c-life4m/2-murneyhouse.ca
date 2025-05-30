@@ -10,11 +10,29 @@ document.addEventListener('DOMContentLoaded', () => {
     } else {
         setTheme('light');
     }
-
-    loadHeroImage();
+    // loadHeroImage(); // REMOVE THIS LINE
+    loadImages(); // Use this instead of loadHeroImage()
     setupEventListeners();
     handleScroll(); // Call on load to set initial header state
 });
+
+function loadImages() {
+    // Hero image animation
+    setTimeout(() => {
+        const heroImage = document.querySelector('.hero-image');
+        const heroText = document.querySelector('.hero-text');
+
+        if (heroImage) {
+            heroImage.style.opacity = 1;
+            heroImage.style.transform = 'scale(1)';
+        }
+
+        // Trigger hero text fly-in animation
+        if (heroText) {
+            heroText.classList.add('loaded');
+        }
+    }, 500);
+}
 
 function setTheme(theme) {
     if (theme === 'dark') {
@@ -72,41 +90,5 @@ function handleScroll() {
         } else {
             header.classList.remove('scrolled');
         } // Added missing closing brace
-    }
-}
-
-function loadHeroImage() {
-    const heroImage = document.querySelector('.hero-image');
-    const heroImageContainer = document.querySelector('.hero-image-container');
-
-    if (heroImage && heroImageContainer) {
-        // Get the current background image URL
-        const backgroundImage = heroImage.style.backgroundImage;
-        const imageUrl = backgroundImage.replace(/url\(['"]?/, '').replace(/['"]?\)$/, '');
-
-        console.log('Background Image URL:', backgroundImage);
-        console.log('Extracted Image URL:', imageUrl);
-
-        const img = new Image();
-
-        img.onload = () => {
-            console.log('Image loaded successfully');
-            console.log('Natural image size:', img.naturalWidth, 'x', img.naturalHeight);
-
-            // Ensure the image is visible
-            heroImage.classList.add('loaded');
-            heroImageContainer.style.opacity = '1';
-        };
-
-        img.onerror = (error) => {
-            console.error('Image load failed:', error);
-            console.error('Image URL:', imageUrl);
-        };
-
-        img.src = imageUrl;
-    } else {
-        console.error('Hero image elements not found');
-        if (!heroImage) console.error('Hero image element missing');
-        if (!heroImageContainer) console.error('Hero image container missing');
     }
 }
