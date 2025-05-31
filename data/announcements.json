@@ -1,0 +1,25 @@
+{
+  "announcements": [
+    {
+      "id": 1,
+      "date": "2024-01-15",
+      "title": "Winter Special Rates",
+      "content": "Enjoy 20% off all winter bookings through March! Perfect time to experience our cozy rooms.",
+      "priority": "high"
+    },
+    {
+      "id": 2,
+      "date": "2024-01-10",
+      "title": "New Amenities Added",
+      "content": "We've upgraded our breakfast service and added complimentary afternoon tea!",
+      "priority": "medium"
+    },
+    {
+      "id": 3,
+      "date": "2024-01-05",
+      "title": "Local Events",
+      "content": "Don't miss the Winter Festival downtown this weekend. Ask us for recommendations!",
+      "priority": "low"
+    }
+  ]
+}

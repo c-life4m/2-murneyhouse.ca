@@ -92,3 +92,64 @@ function handleScroll() {
         } // Added missing closing brace
     }
 }
+
+// Announcements card animation trigger
+function initAnnouncementsCard() {
+    const announcementsCard = document.querySelector('.announcements-card');
+
+    if (announcementsCard) {
+        // Trigger the animation after hero loads
+        setTimeout(() => {
+            announcementsCard.classList.add('loaded');
+        }, 1200);
+    }
+}
+
+// Call the function when DOM is loaded
+document.addEventListener('DOMContentLoaded', function() {
+    // Your existing code...
+
+    // Initialize announcements
+    initAnnouncementsCard();
+});
+
+    // Load announcements from JSON
+    async function loadAnnouncements() {
+        try {
+            const response = await fetch('data/announcements.json');
+            const data = await response.json();
+
+            const container = document.getElementById('announcements-container');
+
+            if (data.announcements && data.announcements.length > 0) {
+                // Sort by date (newest first)
+                const sortedAnnouncements = data.announcements.sort((a, b) =>
+                    new Date(b.date) - new Date(a.date)
+                );
+
+                // Generate HTML
+                const announcementsHTML = sortedAnnouncements.map(announcement => `
+                    <div class="announcement-item ${announcement.priority}">
+                        <div class="announcement-date">${formatDate(announcement.date)}</div>
+                        <div class="announcement-title">${announcement.title}</div>
+                        <div class="announcement-content">${announcement.content}</div>
+                    </div>
+                `).join('');
+
+                container.innerHTML = announcementsHTML;
+            } else {
+                container.innerHTML = '<div class="no-announcements">No announcements at this time.</div>';
+            }
+        } catch (error) {
+            console.error('Error loading announcements:', error);
+            document.getElementById('announcements-container').innerHTML =
+                '<div class="error-message">Unable to load announcements.</div>';
+        }
+    }
+
+    // Format date helper
+    function formatDate(dateString) {
+        const options = { year: 'numeric', month: 'short', day: 'numeric' };
+        return new Date(dateString).toLocaleDateString('en-US', options);
+    }
+}
