@@ -113,43 +113,56 @@ document.addEventListener('DOMContentLoaded', function() {
     initAnnouncementsCard();
 });
 
-    // Load announcements from JSON
-    async function loadAnnouncements() {
-        try {
-            const response = await fetch('data/announcements.json');
-            const data = await response.json();
+ // Load announcements from JSON
+async function loadAnnouncements() {
+    const container = document.getElementById('announcements-container');
 
-            const container = document.getElementById('announcements-container');
+    try {
+        const response = await fetch('data/announcements.json');
 
-            if (data.announcements && data.announcements.length > 0) {
-                // Sort by date (newest first)
-                const sortedAnnouncements = data.announcements.sort((a, b) =>
-                    new Date(b.date) - new Date(a.date)
-                );
-
-                // Generate HTML
-                const announcementsHTML = sortedAnnouncements.map(announcement => `
-                    <div class="announcement-item ${announcement.priority}">
-                        <div class="announcement-date">${formatDate(announcement.date)}</div>
-                        <div class="announcement-title">${announcement.title}</div>
-                        <div class="announcement-content">${announcement.content}</div>
-                    </div>
-                `).join('');
-
-                container.innerHTML = announcementsHTML;
-            } else {
-                container.innerHTML = '<div class="no-announcements">No announcements at this time.</div>';
-            }
-        } catch (error) {
-            console.error('Error loading announcements:', error);
-            document.getElementById('announcements-container').innerHTML =
-                '<div class="error-message">Unable to load announcements.</div>';
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
         }
-    }
 
-    // Format date helper
-    function formatDate(dateString) {
-        const options = { year: 'numeric', month: 'short', day: 'numeric' };
-        return new Date(dateString).toLocaleDateString('en-US', options);
+        const data = await response.json();
+
+        if (data.announcements && data.announcements.length > 0) {
+            // Sort by date (newest first)
+            const sortedAnnouncements = data.announcements.sort((a, b) =>
+                new Date(b.date) - new Date(a.date)
+            );
+
+            // Generate HTML
+            const announcementsHTML = sortedAnnouncements.map(announcement => `
+                <div class="announcement-item ${announcement.priority}">
+                    <div class="announcement-date">${formatDate(announcement.date)}</div>
+                    <div class="announcement-title">${announcement.title}</div>
+                    <div class="announcement-content">${announcement.content}</div>
+                </div>
+            `).join('');
+
+            container.innerHTML = announcementsHTML;
+        } else {
+            loadFallbackAnnouncements(container);
+        }
+    } catch (error) {
+        console.error('Error loading announcements:', error);
+        loadFallbackAnnouncements(container);
     }
+}
+
+// Fallback announcements if JSON fails
+function loadFallbackAnnouncements(container) {
+    container.innerHTML = `
+        <div class="announcement-item high">
+            <div class="announcement-date">Jan 15, 2024</div>
+            <div class="announcement-title">Welcome to Murney House</div>
+            <div class="announcement-content">Experience comfort and hospitality in our beautiful heritage home. Book your stay today!</div>
+        </div>
+        <div class="announcement-item medium">
+            <div class="announcement-date">Jan 10, 2024</div>
+            <div class="announcement-title">Winter Special</div>
+            <div class="announcement-content">Enjoy our cozy rooms during the winter season with special rates available.</div>
+        </div>
+    `;
 }
